@@ -1,142 +1,16 @@
-Repository Structure Analysis & Visualization System
+# React + Vite
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Problem Statement
+Currently, two official plugins are available:
 
-Large software repositories are often difficult to understand because files are interconnected and spread across multiple directories. New contributors usually spend considerable time identifying dependencies and understanding the purpose of each file.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-This project provides an automated solution by analyzing a repository, extracting relationships between files, calculating software metrics, and presenting the results through an interactive dependency graph. It also integrates AI-based explanations to make code easier to understand.
+## React Compiler
 
-Solution
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-The application combines repository parsing, graph visualization, and generative AI into a single platform.
+## Expanding the ESLint configuration
 
-The system can:
-
-Analyze local projects or public GitHub repositories
-Detect relationships between source files
-Compute repository statistics
-Measure file complexity
-Generate AI explanations for individual files
-Display the repository as an interactive graph
-Project Components
-Frontend
-
-The frontend is developed using React and React Flow. It allows users to:
-
-Enter a GitHub repository URL
-Explore the dependency graph
-View repository statistics
-Inspect file information
-Generate AI summaries
-Backend
-
-The FastAPI backend is responsible for:
-
-Cloning GitHub repositories
-Parsing source code
-Extracting dependencies
-Calculating repository metrics
-Communicating with the Gemini API
-AI Module
-
-The AI module explains individual source files in simple language by describing:
-
-The file's purpose
-Technologies used
-Why the file is important
-
-To reduce API usage, summaries are cached and reused whenever the same file is requested again.
-
-Supported File Types
-
-The analyzer currently supports:
-
-Python
-JavaScript
-React JSX
-TypeScript
-Java
-C
-C++
-Header files
-Jupyter Notebooks
-Repository Metrics
-
-For every analyzed file, the system records:
-
-Metric	Description
-Lines of Code	Number of executable lines
-Complexity	Estimated code complexity
-Language	Source language
-Dependencies	Imported project files
-How the System Works
-User
-   │
-   ▼
-Enter GitHub Repository URL
-   │
-   ▼
-Clone Repository
-   │
-   ▼
-Parse Source Files
-   │
-   ▼
-Extract Dependencies
-   │
-   ▼
-Calculate Metrics
-   │
-   ▼
-Generate Graph Data
-   │
-   ▼
-Display Interactive Visualization
-   │
-   ▼
-Generate AI Summary (on node click)
-Technology Used
-Frontend
-React
-React Flow
-Axios
-Vite
-Backend
-Python
-FastAPI
-GitPython
-Radon
-AI Services
-Google Gemini API
-Installation
-Clone Repository
-git clone <repository-url>
-cd Repository-Structure-Analysis-and-Visualisation-System
-Backend
-python -m venv venv
-
-source venv/bin/activate
-
-pip install -r requirements.txt
-
-uvicorn app:app --reload
-
-Create a .env file:
-
-GEMINI_API_KEY=YOUR_API_KEY
-Frontend
-cd frontend
-
-npm install
-
-npm run dev
-Future Scope
-
-Possible improvements include:
-
-Automatic graph layout optimization
-Repository-wide AI documentation
-Advanced search and filtering
-Export graph as PNG or PDF
-Additional programming language support
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

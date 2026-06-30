@@ -1,142 +1,158 @@
 Repository Structure Analysis & Visualization System
+A full-stack software architecture analysis platform that automatically parses local and GitHub repositories, constructs dependency graphs, computes code metrics, and generates AI-powered code summaries for improved repository comprehension.
 
+📌 Overview
+Modern software repositories often contain hundreds of interconnected files, making onboarding and architecture understanding difficult.
 
-Problem Statement
+The Repository Structure Analysis & Visualization System addresses this problem by automatically:
 
-Large software repositories are often difficult to understand because files are interconnected and spread across multiple directories. New contributors usually spend considerable time identifying dependencies and understanding the purpose of each file.
+Parsing source code repositories
+Extracting dependency relationships
+Computing code metrics (LOC & Complexity)
+Generating interactive dependency graphs
+Producing AI-powered file summaries
+Optimizing repeated AI calls through cache-based inference
+The platform enables developers to quickly understand unfamiliar codebases and visualize repository architecture.
 
-This project provides an automated solution by analyzing a repository, extracting relationships between files, calculating software metrics, and presenting the results through an interactive dependency graph. It also integrates AI-based explanations to make code easier to understand.
+✨ Features
+Repository Analysis
+Analyze local repositories
+Analyze public GitHub repositories
+Automatic repository cloning and parsing
+Dependency Graph Visualization
+Interactive graph-based architecture visualization
+Dependency relationship mapping
+Complexity-based node coloring
+React Flow powered visualization
+Code Metrics
+Lines of Code (LOC)
+Cyclomatic Complexity (Python)
+Heuristic Complexity Estimation (JS, TS, Java, C, C++)
+Repository Statistics Dashboard
+AI-Powered Insights
+File-level AI summaries using Gemini API
+Click-to-summarize functionality
+Cache-based summary optimization
+Reduced redundant LLM requests
+Multi-Language Support
+Python (.py)
+Jupyter Notebooks (.ipynb)
+JavaScript (.js)
+React (.jsx)
+TypeScript (.ts)
+TSX (.tsx)
+Java (.java)
+C (.c)
+C++ (.cpp, .hpp, .h)
+User Experience
+Light/Dark Theme
+Interactive Node Inspection
+Real-Time Repository Visualization
+🏗️ System Architecture
 
-Solution
-
-The application combines repository parsing, graph visualization, and generative AI into a single platform.
-
-The system can:
-
-Analyze local projects or public GitHub repositories
-Detect relationships between source files
-Compute repository statistics
-Measure file complexity
-Generate AI explanations for individual files
-Display the repository as an interactive graph
-Project Components
+⚙️ Technology Stack
 Frontend
-
-The frontend is developed using React and React Flow. It allows users to:
-
-Enter a GitHub repository URL
-Explore the dependency graph
-View repository statistics
-Inspect file information
-Generate AI summaries
+Technology	Purpose
+React	User Interface
+React Flow	Graph Visualization
+Axios	API Communication
 Backend
-
-The FastAPI backend is responsible for:
-
-Cloning GitHub repositories
-Parsing source code
-Extracting dependencies
-Calculating repository metrics
-Communicating with the Gemini API
-AI Module
-
-The AI module explains individual source files in simple language by describing:
-
-The file's purpose
-Technologies used
-Why the file is important
-
-To reduce API usage, summaries are cached and reused whenever the same file is requested again.
-
-Supported File Types
-
-The analyzer currently supports:
-
+Technology	Purpose
+FastAPI	REST API Backend
+Python	Repository Analysis
+GitPython	GitHub Repository Cloning
+AI Layer
+Technology	Purpose
+Gemini API	AI Code Summarization
+🔄 Workflow
+User submits a GitHub repository URL.
+Backend clones and analyzes the repository.
+Source files are parsed.
+Dependency relationships are extracted.
+LOC and complexity metrics are computed.
+Graph data is generated.
+React Flow visualizes repository architecture.
+User clicks a file node.
+Gemini generates an AI summary.
+Summary is cached for future requests.
+📊 Complexity Analysis Strategy
 Python
-JavaScript
-React JSX
-TypeScript
-Java
-C
-C++
-Header files
-Jupyter Notebooks
-Repository Metrics
+Cyclomatic Complexity is calculated using Radon.
 
-For every analyzed file, the system records:
+Other Languages
+Complexity is estimated using decision-point heuristics:
 
-Metric	Description
-Lines of Code	Number of executable lines
-Complexity	Estimated code complexity
-Language	Source language
-Dependencies	Imported project files
-How the System Works
-User
-   │
-   ▼
-Enter GitHub Repository URL
-   │
-   ▼
-Clone Repository
-   │
-   ▼
-Parse Source Files
-   │
-   ▼
-Extract Dependencies
-   │
-   ▼
-Calculate Metrics
-   │
-   ▼
-Generate Graph Data
-   │
-   ▼
-Display Interactive Visualization
-   │
-   ▼
-Generate AI Summary (on node click)
-Technology Used
-Frontend
-React
-React Flow
-Axios
-Vite
+if
+else
+for
+while
+switch
+case
+catch
+try
+This provides meaningful complexity estimation across multiple languages while maintaining fast analysis speed.
+
+🧠 Cache Optimization
+To reduce redundant LLM requests:
+
+File hashes are generated
+Previously summarized files are cached
+Repeated requests return cached summaries
+Reduces API costs and latency
+Example:
+
+CACHE MISS → Generate Summary → Save Cache
+CACHE HIT  → Return Cached Summary
+🚀 Installation
 Backend
-Python
-FastAPI
-GitPython
-Radon
-AI Services
-Google Gemini API
-Installation
-Clone Repository
-git clone <repository-url>
+🚀 Installation & Setup
+1. Clone the Repository
+git clone https://github.com/Urahara0723/Repository-Structure-Analysis-and-Visualisation-System.git
+
 cd Repository-Structure-Analysis-and-Visualisation-System
-Backend
-python -m venv venv
+2. Backend Setup
+Create and activate a virtual environment:
 
+python -m venv venv
+Windows
+venv\Scripts\activate
+Linux / macOS
 source venv/bin/activate
+Install dependencies:
 
 pip install -r requirements.txt
-
-uvicorn app:app --reload
-
 Create a .env file:
 
-GEMINI_API_KEY=YOUR_API_KEY
-Frontend
+GEMINI_API_KEY=your_api_key_here
+Start the FastAPI server:
+
+uvicorn app:app --reload
+Backend runs at:
+
+http://127.0.0.1:8000
+3. Frontend Setup
+Open a new terminal:
+
 cd frontend
+Install dependencies:
 
 npm install
+Start the development server:
 
 npm run dev
-Future Scope
+Frontend runs at:
 
-Possible improvements include:
+http://localhost:5173
+4. Using the Application
+Open http://localhost:5173
+Paste a public GitHub repository URL
+Click Analyze GitHub Repo
+Explore the dependency graph
+Click any node to generate an AI summary
+Toggle between Light and Dark mode
+Example Repositories
+https://github.com/axios/axios
 
-Automatic graph layout optimization
-Repository-wide AI documentation
-Advanced search and filtering
-Export graph as PNG or PDF
-Additional programming language support
+https://github.com/google/googletest
+
+https://github.com/pallets/flask

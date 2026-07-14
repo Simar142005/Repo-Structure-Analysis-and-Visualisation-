@@ -1,12 +1,5 @@
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
-![React](https://img.shields.io/badge/React-Frontend-61DAFB)
-![Gemini](https://img.shields.io/badge/Gemini-AI-orange)
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
-![React](https://img.shields.io/badge/React-Frontend-61DAFB)
-![Gemini](https://img.shields.io/badge/Gemini-AI-orange)
+
 
 # 🚀 Repository Architecture Analysis & Visualization Platform
 

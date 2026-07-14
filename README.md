@@ -1,7 +1,9 @@
 🚀 Repository Structure Analysis & Visualization System
+
 A full-stack software architecture analysis platform that automatically parses local and GitHub repositories, constructs dependency graphs, computes code metrics, and generates AI-powered code summaries for improved repository comprehension.
 
 📌 Overview
+
 Modern software repositories often contain hundreds of interconnected files, making onboarding and architecture understanding difficult.
 
 The Repository Structure Analysis & Visualization System addresses this problem by automatically:

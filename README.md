@@ -308,22 +308,3 @@ https://github.com/google/googletest
 https://github.com/pallets/flask
 ```
 
-
----
-
-# 📈 Future Enhancements
-
-* Repository-Level AI Summary
-* Search & Filtering
-* Export Graph as PNG/PDF
-* Automatic Graph Layout Algorithms
-* Support for Additional Languages
-
----
-
-# 👨‍💻 Author
-
-**Mohit Trivedi**
-IIT Roorkee
-
----

@@ -3,26 +3,31 @@
 ![React](https://img.shields.io/badge/React-Frontend-61DAFB)
 ![Gemini](https://img.shields.io/badge/Gemini-AI-orange)
 
-# 🚀 Repository Structure Analysis & Visualization System
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB)
+![Gemini](https://img.shields.io/badge/Gemini-AI-orange)
 
-A full-stack software architecture analysis platform that automatically parses local and GitHub repositories, constructs dependency graphs, computes code metrics, and generates AI-powered code summaries for improved repository comprehension.
+# 🚀 Repository Architecture Analysis & Visualization Platform
+
+An intelligent full-stack application that analyzes local and GitHub repositories to discover project architecture, identify dependencies, compute code quality metrics, and generate AI-powered summaries for enhanced codebase understanding.
 
 ---
 
 ## 📌 Overview
 
-Modern software repositories often contain hundreds of interconnected files, making onboarding and architecture understanding difficult.
+Large software repositories often consist of numerous interconnected files, making it difficult for developers to understand project architecture, dependencies, and code organization.
 
-The Repository Structure Analysis & Visualization System addresses this problem by automatically:
+The Repository Architecture Analysis & Visualization Platform simplifies repository exploration by automatically:
 
-* Parsing source code repositories
-* Extracting dependency relationships
-* Computing code metrics (LOC & Complexity)
-* Generating interactive dependency graphs
-* Producing AI-powered file summaries
-* Optimizing repeated AI calls through cache-based inference
+* Scanning repositories from local storage or GitHub
+* Identifying dependencies between source files
+* Computing software metrics (LOC & Code Complexity)
+* Building interactive dependency visualizations
+* Generating AI-powered summaries for source files
+* Reducing repeated AI requests through intelligent summary caching
 
-The platform enables developers to quickly understand unfamiliar codebases and visualize repository architecture.
+The platform provides developers with a clear architectural overview, enabling faster onboarding, easier maintenance, and improved understanding of complex software projects.
 
 ---
 
@@ -78,42 +83,36 @@ The platform enables developers to quickly understand unfamiliar codebases and v
 # 🏗️ System Architecture
 
 ```mermaid
-flowchart TB
+flowchart LR
 
-    User["👤 User"]
-    Input["GitHub URL / Local Repository"]
+    A[👤 Developer] --> B[📥 Repository Input<br/>GitHub URL / Local Folder]
 
-    Backend["⚡ FastAPI Backend"]
+    subgraph Backend[⚡ Backend Processing]
+        C[📂 Source Code Scanner]
+        D[📈 Code Metrics Analyzer]
+        E[🧠 AI Documentation Generator]
+        F[(💾 Cache Storage)]
+        G[🕸️ Dependency Mapper]
 
-    Parser["📂 Repository Parser"]
-    Metrics["📊 Metrics Engine<br/>LOC & Complexity Analysis"]
-    Summary["🧠 AI Summary Engine<br/>Gemini API"]
-    Cache["💾 Summary Cache"]
+        C --> D
+        C --> E
+        E <--> F
+        D --> G
+        E --> G
+    end
 
-    Graph["🔗 Dependency Graph Generator"]
+    subgraph Frontend[⚛️ Client Application]
+        H[📊 Interactive Dashboard]
+        I[🌐 Repository Graph Viewer]
+    end
 
-    Frontend["⚛️ React Frontend"]
-    ReactFlow["🌐 React Flow Visualization"]
-
-    User --> Input
-    Input --> Backend
-
-    Backend --> Parser
-    Backend --> Metrics
-    Backend --> Summary
-
-    Summary <--> Cache
-
-    Parser --> Graph
-    Metrics --> Graph
-    Summary --> Graph
-
-    Graph --> Frontend
-    Frontend --> ReactFlow
-
-    ReactFlow --> User
+    B --> C
+    G --> H
+    H --> I
+    I --> J[👤 User]
 ```
----
+
+   
 
 # ⚙️ Technology Stack
 
